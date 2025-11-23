@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Шаблонизація: products</title>
+  </head>
+
+  <body>
+
+    <ul class="product-list"></ul>
+
+<template id="teml">
+  {{#each this}}
+     ...
+  {{/each}}
+</template>
+
+    <!-- Handlebars автоматически собирается Parcel-ем, CDN не нужен -->
+    <script type="module">
+      import Handlebars from "handlebars";
+      import { products } from "./data.js";
+
+      const productTempl = document.querySelector("#teml");
+      const template = Handlebars.compile(productTempl.innerHTML);
+
+      const markup = template(products);
+
+      const productList = document.querySelector(".product-list");
+      productList.innerHTML = markup;
+    </script>
+
+  </body>
+</html>
