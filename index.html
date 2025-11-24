@@ -11,25 +11,11 @@
 
     <ul class="product-list"></ul>
 
-<template id="teml">
-  {{#each this}}
-     ...
-  {{/each}}
-</template>
+    <!-- Handlebars CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
-    <!-- Handlebars автоматически собирается Parcel-ем, CDN не нужен -->
-    <script type="module">
-      import Handlebars from "handlebars";
-      import { products } from "./data.js";
-
-      const productTempl = document.querySelector("#teml");
-      const template = Handlebars.compile(productTempl.innerHTML);
-
-      const markup = template(products);
-
-      const productList = document.querySelector(".product-list");
-      productList.innerHTML = markup;
-    </script>
+    <!-- Підключення JS -->
+    <script type="module" src="./index.js"></script>
 
   </body>
 </html>
