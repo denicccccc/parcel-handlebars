@@ -1,9 +1,5 @@
 import { products } from "./data.js";
 
-// Завантажуємо шаблон (fetch працює для локальних файлів у браузері)
-fetch("./src/template.hbs")
-  .then(response => response.text())
-  .then(templateSource => {
     const template = Handlebars.compile(`
       {{#each this}}
         <li class="product-item">
@@ -17,4 +13,3 @@ fetch("./src/template.hbs")
     const markup = template(products);
 
     document.querySelector(".product-list").innerHTML = markup;
-  });
